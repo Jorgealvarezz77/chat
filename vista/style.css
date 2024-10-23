@@ -1,0 +1,107 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d4f5d0; /* Verde claro suave para el fondo */
+    color: #333; /* Texto en gris oscuro */
+}
+
+header {
+    background-color: #8fbf88; /* Verde suave para el encabezado */
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff; /* Blanco para el texto de los enlaces */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #333; /* Cambia a gris oscuro al pasar el mouse */
+}
+
+.main {
+    padding: 20px;
+}
+
+ul.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+}
+
+ul.productos li {
+    list-style-type: none;
+    background-color: #e3e6c9; /* Verde claro para el fondo de los productos */
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+ul.productos li h2 {
+    color: #6b8e23; /* Verde oliva para los títulos */
+}
+
+ul.productos li img {
+    border-radius: 5px;
+}
+
+ul.productos li .producto-descripcion {
+    font-size: 14px;
+    color: #666; /* Texto en gris claro */
+}
+
+ul.productos li .producto-precio {
+    color: #556b2f; /* Verde más oscuro para el precio */
+    font-weight: bold;
+}
+
+/* Estilos para el botón con transición */
+.enviar {
+    background-color: #8fbf88; /* Verde suave */
+    color: white;
+    padding: 15px 20px; /* Botón más grande */
+    font-size: 16px; /* Texto más grande */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.enviar:hover {
+    background-color: #6b8e23; /* Verde oliva más oscuro al pasar el mouse */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño del botón al pasar el mouse */
+}
+
+.alert-success {
+    background-color: #dff0d8; /* Fondo verde claro para mensajes de éxito */
+    color: #3c763d;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+footer {
+    background-color: #8fbf88; /* Verde suave */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: static;
+    bottom: 0;
+    width: 100%;
+}

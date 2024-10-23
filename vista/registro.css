@@ -1,0 +1,97 @@
+/* registro.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d4f5d0; /* Verde claro suave para el fondo */
+    color: #333; /* Texto en gris oscuro */
+}
+
+header {
+    background-color: #8fbf88; /* Verde suave para el encabezado */
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff; /* Blanco para el texto de los enlaces */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #333; /* Cambia a gris oscuro al pasar el mouse */
+}
+body {
+    padding-top: 80px; /* Espacio para el header */
+}
+
+.form-container {
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: auto; /* Centrar horizontalmente */
+    padding: 20px; /* Espaciado interno */
+    background-color: white; /* Fondo blanco para el formulario */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.form-container h2 {
+    color: #6b8e23; /* Verde oliva para el título del formulario */
+}
+
+.form-container .form-label {
+    color: #333; /* Color del texto de las etiquetas */
+}
+
+.form-container .form-control {
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Esquinas redondeadas para los campos */
+}
+
+.form-container .form-control:focus {
+    border-color: #6b8e23; /* Cambia el borde al enfocar el campo */
+    box-shadow: 0 0 5px rgba(107, 142, 35, 0.5); /* Sombra al enfocar el campo */
+}
+
+.enviar {
+    background-color: #8fbf88; /* Verde suave */
+    color: white;
+    padding: 15px 20px; /* Botón más grande */
+    font-size: 16px; /* Texto más grande */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.enviar:hover {
+    background-color: #6b8e23; /* Verde oliva más oscuro al pasar el mouse */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño del botón al pasar el mouse */
+}
+
+.alert-success {
+    background-color: #dff0d8; /* Fondo verde claro para mensajes de éxito */
+    color: #3c763d;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+footer {
+    background-color: #8fbf88; /* Verde suave */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

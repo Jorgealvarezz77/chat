@@ -1,0 +1,78 @@
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Fuente del cuerpo */
+    background-color: #d4f5d0; /* Verde claro suave para el fondo */
+    color: #333; /* Texto en gris oscuro */
+    margin: 0; /* Elimina margen predeterminado */
+}
+
+/* Header Styles */
+header {
+    background-color: #8fbf88; /* Verde suave para el encabezado */
+    padding: 20px; /* Espaciado interno del encabezado */
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    margin: 0; /* Elimina margen */
+    padding: 0; /* Elimina padding */
+    text-align: center; /* Centra el contenido del menú */
+}
+
+nav ul li {
+    display: inline; /* Muestra los elementos en línea */
+    margin-right: 15px; /* Espaciado entre los enlaces */
+}
+
+nav ul li a {
+    color: #fff; /* Blanco para el texto de los enlaces */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-weight: bold; /* Estilo en negrita */
+}
+
+nav ul li a:hover {
+    color: #333; /* Cambia a gris oscuro al pasar el mouse */
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px; /* Espaciado interno del contenido principal */
+}
+
+/* Section Styles */
+.diferenciales, .mapa-contenido {
+    margin-bottom: 20px; /* Espaciado inferior entre secciones */
+}
+
+.titulo-centralizado {
+    text-align: center; /* Centra el texto de los títulos */
+}
+
+/* List Styles */
+ul.mucho {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina padding */
+}
+
+ul.mucho li {
+    margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+}
+
+/* Map Styles */
+iframe {
+    border: 0; /* Elimina borde del iframe */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #8fbf88; /* Verde suave */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centra el contenido del pie de página */
+    padding: 10px 0; /* Espaciado vertical */
+    position: relative; /* Posición relativa */
+    width: 100%; /* Ancho completo */
+    bottom: 0; /* Alinear al fondo */
+}

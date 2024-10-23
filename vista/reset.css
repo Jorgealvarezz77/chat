@@ -1,0 +1,97 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d4f5d0; /* Verde claro suave para el fondo */
+    color: #333; /* Texto en gris oscuro */
+}
+
+header {
+    background-color: #8fbf88; /* Verde suave para el encabezado */
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff; /* Blanco para el texto de los enlaces */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #333; /* Cambia a gris oscuro al pasar el mouse */
+}
+
+main {
+    padding: 20px;
+}
+
+.form-container {
+    background-color: #e3e6c9; /* Verde claro para el fondo del formulario */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #6b8e23; /* Verde oliva para el título */
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #556b2f; /* Verde más oscuro */
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"].enviar {
+    width: 40%; /* Ancho del 40% */
+    padding: 15px 0; /* Ajuste del padding */
+    font-size: 18px; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Negrita */
+    color: white; /* Texto blanco */
+    background-color: #8fbf88; /* Verde suave */
+    border: none; 
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+input[type="submit"].enviar:hover {
+    background-color: #6b8e23; /* Verde oliva más oscuro al pasar el mouse */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño del botón al pasar el mouse */
+}
+
+/* footer {
+    background-color: #8fbf88; 
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+} */
+
