@@ -130,7 +130,5 @@ if (isset($_POST['agregar_carrito'])) {
     </main>
 
 </body>
-perra vida
-ostia puta
-dwaiwdia
+
 </html>
