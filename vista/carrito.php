@@ -77,6 +77,7 @@ if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
     </main>
 
                     <h2>fin del carrito</h2>
+                    <h3>otro carrito</h3>
 
 </body>
 
