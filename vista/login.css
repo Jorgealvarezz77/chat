@@ -1,8 +1,8 @@
-/* login.css */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #d4f5d0; /* Verde claro suave para el fondo */
-    color: #333; /* Texto en gris oscuro */
+    background-color: #d4f5d0; 
+    color: #333; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background-color: #8fbf88; /* Verde suave para el encabezado */
+    background-color: #8fbf88; 
     width: 100%;
     padding: 10px 0;
 }
@@ -29,17 +29,15 @@ header {
 }
 
 .caja nav ul li a {
-    color: #fff; /* Blanco para el texto de los enlaces */
+    color: #fff; 
     text-decoration: none;
     font-weight: bold;
 }
 
 .caja nav ul li a:hover {
-    color: #333; /* Cambia a gris oscuro al pasar el mouse */
-}
-
+    color: #333; 
 .form-container {
-    background-color: #e3e6c9; /* Fondo claro para el contenedor */
+    background-color: #e3e6c9; 
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -49,12 +47,12 @@ header {
 }
 
 h2 {
-    color: #6b8e23; /* Verde oliva para el título */
+    color: #6b8e23; 
     margin-bottom: 20px;
 }
 
 .form-label {
-    color: #333; /* Texto gris oscuro */
+    color: #333; 
 }
 
 .form-control {
@@ -63,11 +61,11 @@ h2 {
 }
 
 .form-check-label {
-    color: #333; /* Texto gris oscuro */
+    color: #333; 
 }
 
 .btn-primary {
-    background-color: #8fbf88; /* Verde suave para el botón */
+    background-color: #8fbf88; 
     border: none;
     color: white;
     font-weight: bold;
@@ -78,18 +76,18 @@ h2 {
 }
 
 .btn-primary:hover {
-    background-color: #6b8e23; /* Más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Pequeña animación al hacer hover */
+    background-color: #6b8e23; 
+    transform: scale(1.05); 
 }
 
 .alert-danger {
-    background-color: #f8d7da; /* Fondo rojo claro */
-    color: #721c24; /* Texto rojo oscuro */
+    background-color: #f8d7da; 
+    color: #721c24; 
     border-radius: 5px;
     padding: 10px;
     margin-top: 15px;
 }
 
 .nav-item.active a {
-    color: #ffff99; /* Cambia el color del enlace activo */
+    color: #ffff99; 
 }
