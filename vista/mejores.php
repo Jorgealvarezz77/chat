@@ -1,12 +1,12 @@
 <?php
 session_start(); // Esto debe ir al inicio del archivo
 
-// Inicializar el carrito si no existe
+
 if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
 }
 
-// Función para agregar productos al carrito
+
 if (isset($_POST['agregar_carrito'])) {
     $producto = [
         'nombre' => $_POST['nombre'],
@@ -15,11 +15,11 @@ if (isset($_POST['agregar_carrito'])) {
         'cantidad' => 1
     ];
 
-    // Verificar si el producto ya está en el carrito
+   
     $encontrado = false;
     foreach ($_SESSION['carrito'] as &$item) {
         if ($item['nombre'] == $producto['nombre']) {
-            // Si el producto ya está en el carrito, verificar el stock disponible
+            
             if ($item['cantidad'] < $producto['stock']) {
                 $item['cantidad']++;
                 $encontrado = true;
@@ -31,7 +31,7 @@ if (isset($_POST['agregar_carrito'])) {
     }
 
     if (!$encontrado && $producto['stock'] > 0) {
-        // Agregar el nuevo producto al carrito si hay stock disponible
+        
         $_SESSION['carrito'][] = $producto;
     } elseif ($producto['stock'] <= 0) {
         echo "<script>alert('Este producto no tiene stock disponible.');</script>";
@@ -79,12 +79,12 @@ if (isset($_POST['agregar_carrito'])) {
             <div class="container">
                 <br>
                 <div class="alert alert-success">
-                    <!-- Aquí puedes mostrar mensajes de éxito o error -->
+                   
                 </div>
             </div>
 
             <?php
-            // Incluir el archivo de conexión
+           
             include 'conexion.php';
 
             // Obtener los productos, incluyendo el stock y el nombre del usuario que los subió
@@ -94,7 +94,7 @@ if (isset($_POST['agregar_carrito'])) {
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                // Mostrar cada producto
+                // muestra cada producto
                 while ($row = $result->fetch_assoc()) {
                     echo "<li>";
                     echo "<h2>" . htmlspecialchars($row['nombre']) . "</h2>";

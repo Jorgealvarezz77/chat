@@ -1,13 +1,13 @@
 <?php
 session_start();
-include 'conexion.php'; // Asegúrate de que este archivo exista y contenga la conexión a la base de datos
+include 'conexion.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $userType = $_POST['userType']; // Campo del tipo de usuario seleccionado en el formulario
+    $userType = $_POST['userType']; 
 
-    // Consultar la base de datos para verificar el usuario
+    
     $sql = "SELECT * FROM usuario WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
@@ -17,22 +17,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
-        // Verificar la contraseña
+        
         if (password_verify($password, $user['password'])) {
-            // Crear variables de sesión
-            $_SESSION['user_id'] = $user['id']; // Almacenar el ID del usuario en la sesión
-            $_SESSION['username'] = $user['username']; // Almacenar el nombre de usuario
+            
+            $_SESSION['user_id'] = $user['id']; 
+            $_SESSION['username'] = $user['username']; 
             $_SESSION['loggedin'] = true;
 
-            // Redirigir basado en la selección del formulario
+           
             if ($userType == 'campesino') {
-                // Redirigir a subirproducto.php si el tipo de usuario es campesino
+                
                 header('Location: subirproducto.php');
-                exit(); // Asegúrate de finalizar la ejecución después de la redirección
+                exit(); 
             } else {
-                // Redirigir a productos.html si el tipo de usuario es comprador
+                
                 header('Location: mejores.php');
-                exit(); // Finalizar la ejecución
+                exit(); 
             }
         } else {
             $error_message = "Contraseña incorrecta.";
