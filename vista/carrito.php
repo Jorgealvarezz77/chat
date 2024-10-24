@@ -76,7 +76,6 @@ if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
         <?php endif; ?>
     </main>
 
-                    <h2>CARRITOOOOO</h2>
 
 </body>
 
