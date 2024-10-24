@@ -45,7 +45,7 @@ ul.productos {
 
 ul.productos li {
     list-style-type: none;
-    background-color: #e3e6c9; /* Verde claro para el fondo de los productos */
+    background-color: #e3e6c9; 
     padding: 15px;
     margin: 10px;
     width: 300px;
@@ -54,7 +54,7 @@ ul.productos li {
 }
 
 ul.productos li h2 {
-    color: #6b8e23; /* Verde oliva para los títulos */
+    color: #6b8e23; 
 }
 
 ul.productos li img {
@@ -63,33 +63,33 @@ ul.productos li img {
 
 ul.productos li .producto-descripcion {
     font-size: 14px;
-    color: #666; /* Texto en gris claro */
+    color: #666; 
 }
 
 ul.productos li .producto-precio {
-    color: #556b2f; /* Verde más oscuro para el precio */
+    color: #556b2f; 
     font-weight: bold;
 }
 
-/* Estilos para el botón con transición */
+
 .enviar {
-    background-color: #8fbf88; /* Verde suave */
+    background-color: #8fbf88; 
     color: white;
-    padding: 15px 20px; /* Botón más grande */
-    font-size: 16px; /* Texto más grande */
+    padding: 15px 20px; 
+    font-size: 16px; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    transition: background-color 0.3s ease, transform 0.3s ease; 
 }
 
 .enviar:hover {
-    background-color: #6b8e23; /* Verde oliva más oscuro al pasar el mouse */
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño del botón al pasar el mouse */
+    background-color: #6b8e23; /
+    transform: scale(1.1); 
 }
 
 .alert-success {
-    background-color: #dff0d8; /* Fondo verde claro para mensajes de éxito */
+    background-color: #dff0d8; 
     color: #3c763d;
     padding: 10px;
     border-radius: 5px;
@@ -97,7 +97,7 @@ ul.productos li .producto-precio {
 }
 
 footer {
-    background-color: #8fbf88; /* Verde suave */
+    background-color: #8fbf88; 
     color: white;
     text-align: center;
     padding: 10px 0;

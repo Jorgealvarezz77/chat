@@ -1,0 +1,95 @@
+/* login.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d4f5d0; /* Verde claro suave para el fondo */
+    color: #333; /* Texto en gris oscuro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    background-color: #8fbf88; /* Verde suave para el encabezado */
+    width: 100%;
+    padding: 10px 0;
+}
+
+.caja nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.caja nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.caja nav ul li a {
+    color: #fff; /* Blanco para el texto de los enlaces */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.caja nav ul li a:hover {
+    color: #333; /* Cambia a gris oscuro al pasar el mouse */
+}
+
+.form-container {
+    background-color: #e3e6c9; /* Fondo claro para el contenedor */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+h2 {
+    color: #6b8e23; /* Verde oliva para el título */
+    margin-bottom: 20px;
+}
+
+.form-label {
+    color: #333; /* Texto gris oscuro */
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-check-label {
+    color: #333; /* Texto gris oscuro */
+}
+
+.btn-primary {
+    background-color: #8fbf88; /* Verde suave para el botón */
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #6b8e23; /* Más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Pequeña animación al hacer hover */
+}
+
+.alert-danger {
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Texto rojo oscuro */
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.nav-item.active a {
+    color: #ffff99; /* Cambia el color del enlace activo */
+}

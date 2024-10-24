@@ -55,27 +55,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
     <!-- Incluyendo Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa;
-        }
-        
-        .form-container {
-            padding: 30px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-    </style>
+    <link rel="stylesheet" href="login.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
+
+<header>
+        <div class="caja">
+            <nav>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="pqr.php">Pqr</a></li>
+                    <li><a href="mejores.php">Productos</a></li>
+                    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                        <li><a href="logout.php">Cerrar sesión</a></li>
+                    <?php else: ?>
+                        <li><a href="login.php">Iniciar sesión</a></li>
+                        <li><a href="registro.php">Registrarse</a></li>
+                    <?php endif; ?>
+                    <li class="nav-item active"><a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i>(<?php echo count($_SESSION['carrito']); ?>)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="form-container">
         <h2>Iniciar Sesión</h2>
         <form method="post" action="">
