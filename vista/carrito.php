@@ -76,8 +76,6 @@ if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
         <?php endif; ?>
     </main>
 
-                    <h2>fin del carrito</h2>
-                    <h3>otro carrito</h3>
 
 </body>
 
