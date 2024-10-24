@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-session_start(); // Esto debe ir al inicio del archivo
+session_start(); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password']; 
     $email = $_POST['email'];
 
-    // Encriptar la contraseña
+    
     $password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usuario (nombre, apellido, username, password, email)
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
-    <!-- Incluyendo Bootstrap -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="reset.css">

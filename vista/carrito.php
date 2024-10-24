@@ -1,7 +1,7 @@
 <?php
-session_start(); // Iniciar sesión para acceder al carrito
+session_start(); 
 
-// Verificar si el carrito está vacío
+
 if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
     $mensaje = "El carrito está vacío.";
 } else {
@@ -50,7 +50,8 @@ if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
                 <tbody>
                     <?php
                     $total = 0;
-                    // Mostrar los productos en el carrito
+                   
+                    
                     foreach ($_SESSION['carrito'] as $producto) {
                         $subtotal = $producto['precio'] * $producto['cantidad'];
                         $total += $subtotal;

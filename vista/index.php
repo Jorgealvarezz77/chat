@@ -1,5 +1,5 @@
 <?php
-session_start(); // Esto debe ir al inicio del archivo
+session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,7 +13,7 @@ session_start(); // Esto debe ir al inicio del archivo
 </head>
 
 <body>
-    <!-- Header -->
+    
     <header>
         <nav>
             <h1 class="titulo-principal">AGROO APP</h1>

@@ -1,12 +1,12 @@
-/* style.css */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #d4f5d0; /* Verde claro suave para el fondo */
-    color: #333; /* Texto en gris oscuro */
+    background-color: #d4f5d0;
+    color: #333; 
 }
 
 header {
-    background-color: #8fbf88; /* Verde suave para el encabezado */
+    background-color: #8fbf88;
     padding: 20px;
 }
 
@@ -23,13 +23,13 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff; /* Blanco para el texto de los enlaces */
+    color: #fff; 
     text-decoration: none;
     font-weight: bold;
 }
 
 nav ul li a:hover {
-    color: #333; /* Cambia a gris oscuro al pasar el mouse */
+    color: #333; 
 }
 
 .main {
@@ -84,7 +84,11 @@ ul.productos li .producto-precio {
 }
 
 .enviar:hover {
+<<<<<<< Updated upstream
     background-color: #6b8e23; /
+=======
+    background-color: #6b8e23; 
+>>>>>>> Stashed changes
     transform: scale(1.1); 
 }
 

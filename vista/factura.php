@@ -1,16 +1,16 @@
 <?php
-session_start(); // Iniciar la sesión para acceder al carrito
+session_start(); 
 
-// Verificar si el carrito está vacío
+
 if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
     echo "El carrito está vacío. No se puede generar una factura.";
     exit();
 }
 
-// Obtener los datos del carrito
+
 $carrito = $_SESSION['carrito'];
 
-// Generar número de factura único (opcionalmente puedes almacenarlo en una base de datos)
+
 $numero_factura = 'FAC-' . strtoupper(uniqid());
 
 $total = 0;
@@ -23,7 +23,7 @@ $total = 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Factura - Agroo App</title>
-    <link rel="stylesheet" href="style.css"> <!-- Si tienes un CSS para facturas -->
+    <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="factura.css">
 </head>
 
@@ -46,7 +46,7 @@ $total = 0;
             </thead>
             <tbody>
                 <?php
-                // Iterar por cada producto del carrito
+                
                 foreach ($carrito as $producto) {
                     $subtotal = $producto['precio'] * $producto['cantidad'];
                     $total += $subtotal;

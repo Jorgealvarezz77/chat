@@ -2,14 +2,14 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Fondo claro */
-    color: #333; /* Color de texto */
+    background-color: #f9f9f9; 
+    color: #333; 
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #4CAF50; /* Verde más oscuro */
+    background-color: #4CAF50; 
     color: white;
     padding: 20px;
     text-align: center;
@@ -48,7 +48,7 @@ th, td {
 }
 
 th {
-    background-color: #8fbf88; /* Verde suave */
+    background-color: #8fbf88; 
     color: white;
     font-weight: bold;
     text-align: center;
@@ -60,7 +60,7 @@ td {
 }
 
 tr:last-child td {
-    border-bottom: none; /* Sin borde en la última fila */
+    border-bottom: none; 
 }
 
 tfoot td {
@@ -74,7 +74,7 @@ tfoot td {
 }
 
 button, .btn-volver {
-    background-color: #4CAF50; /* Verde más oscuro */
+    background-color: #4CAF50; 
     color: white;
     padding: 12px 20px;
     font-size: 16px;
@@ -88,7 +88,7 @@ button, .btn-volver {
 }
 
 button:hover, .btn-volver:hover {
-    background-color: #45a049; /* Cambia el color al pasar el mouse */
+    background-color: #45a049; 
 }
 
 footer {
@@ -96,10 +96,10 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed; /* Posición fija para el footer */
+    position: fixed; 
     bottom: 0;
     width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombras suaves */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 footer p {
@@ -107,10 +107,10 @@ footer p {
     font-size: 14px;
 }
 
-/* Estilos adicionales para mejorar la presentación en la impresión */
+
 @media print {
     button, .btn-volver {
-        display: none; /* Oculta botones al imprimir */
+        display: none; 
     }
 
     header, footer {
