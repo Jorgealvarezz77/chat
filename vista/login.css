@@ -10,10 +10,12 @@ body {
     margin: 0;
 }
 
+
 header {
     background-color: #8fbf88; 
     width: 100%;
     padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .caja nav ul {
@@ -36,6 +38,13 @@ header {
 
 .caja nav ul li a:hover {
     color: #333; 
+}
+
+.nav-item.active a {
+    color: #ffff99; 
+}
+
+
 .form-container {
     background-color: #e3e6c9; 
     padding: 30px;
@@ -88,6 +97,11 @@ h2 {
     margin-top: 15px;
 }
 
-.nav-item.active a {
-    color: #ffff99; 
+footer {
+    background-color: #8fbf88; 
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }
