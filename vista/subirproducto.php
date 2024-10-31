@@ -52,13 +52,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subir Producto</title>
-    <link rel="stylesheet" href="sbirprod.css"> <!-- Puedes agregar estilos en sbirprod.css -->
+<meta charset="UTF-8">
+    <title>Productos - Agroo app</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        .contenedor {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
+<header>
+        <nav>
+            <h1 class="titulo-principal">AGROO APP</h1>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="pqr.php">PQR</a></li>
+                <li><a href="mejores.php">Productos</a></li>
+                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                    <li><a href="logout.php">Cerrar sesión</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Iniciar sesión</a></li>
+                    <li><a href="registro.php">Registrarse</a></li>
+                <?php endif; ?>
+                <li class="nav-item active">
+                    <a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo count($_SESSION['carrito']); ?>)</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="form-container">
         <h1>Subir Producto</h1>
