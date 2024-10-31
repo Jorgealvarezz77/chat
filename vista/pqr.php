@@ -9,6 +9,7 @@ session_start(); // Esto debe ir al inicio del archivo
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactos - Agroo app</title>
     <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
@@ -25,6 +26,7 @@ session_start(); // Esto debe ir al inicio del archivo
                         <li><a href="login.php">Iniciar sesión</a></li>
                         <li><a href="registro.php">Registrarse</a></li>
                     <?php endif; ?>
+                    <li class="nav-item active"><a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i>(<?php echo count($_SESSION['carrito']); ?>)</a></li>
                 </ul>
             </nav>
         </div>
