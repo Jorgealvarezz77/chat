@@ -97,10 +97,11 @@ ul.productos li .producto-precio {
 }
 
 footer {
-    background-color: #81b878; 
-    color: white;
-    text-align: center;
-    padding: 10px 0px;
-    width: 100%;
-    position: relative;
+    background-color: #8fbf88; 
+    color: white; 
+    text-align: center; 
+    padding: 10px 0; 
+    position: relative; 
+    width: 100%; 
+    bottom: 0; 
 }
