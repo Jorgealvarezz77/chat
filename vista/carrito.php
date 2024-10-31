@@ -1,13 +1,34 @@
 <?php
-session_start(); 
+session_start();
 
+// Inicializamos el carrito si no existe
+if (!isset($_SESSION['carrito'])) {
+    $_SESSION['carrito'] = [];
+}
 
-if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
-    $mensaje = "El carrito está vacío.";
-} else {
-    $mensaje = "";
+// Mensaje de carrito vacío
+$mensaje = empty($_SESSION['carrito']) ? "El carrito está vacío." : "";
+
+// Función para actualizar cantidad
+if (isset($_POST['action'])) {
+    $productoId = $_POST['id'];
+    foreach ($_SESSION['carrito'] as &$producto) {
+        if ($producto['id'] == $productoId) {
+            if ($_POST['action'] === 'increment') {
+                $producto['cantidad']++;
+            } elseif ($_POST['action'] === 'decrement' && $producto['cantidad'] > 1) {
+                $producto['cantidad']--;
+            } elseif ($_POST['action'] === 'remove') {
+                $_SESSION['carrito'] = array_filter($_SESSION['carrito'], function($p) use ($productoId) {
+                    return $p['id'] != $productoId;
+                });
+            }
+            break;
+        }
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,6 +37,7 @@ if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
     <title>Carrito de Compras - Agroo app</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carro.css">
 </head>
 
 <body>
@@ -37,7 +59,8 @@ if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
 
         <?php if (!empty($mensaje)): ?>
             <p><?php echo $mensaje; ?></p>
-        <?php else: ?>
+        <?php else: ?> 
+            
             <table>
                 <thead>
                     <tr>
@@ -45,12 +68,12 @@ if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
                         <th>Precio</th>
                         <th>Cantidad</th>
                         <th>Subtotal</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $total = 0;
-                   
                     
                     foreach ($_SESSION['carrito'] as $producto) {
                         $subtotal = $producto['precio'] * $producto['cantidad'];
@@ -60,12 +83,20 @@ if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
                         echo "<td>$" . number_format($producto['precio'], 2) . "</td>";
                         echo "<td>" . $producto['cantidad'] . "</td>";
                         echo "<td>$" . number_format($subtotal, 2) . "</td>";
+                        echo "<td>
+                                <form method='post'>
+                                    <input type='hidden' name='id' value='{$producto['id']}'>
+                                    <button type='submit' name='action' value='increment'>+</button>
+                                    <button type='submit' name='action' value='decrement'>-</button>
+                                    <button type='submit' name='action' value='remove'>Eliminar</button>
+                                </form>
+                              </td>";
                         echo "</tr>";
                     }
                     ?>
                     <tr>
                         <td colspan="3"><strong>Total:</strong></td>
-                        <td><strong>$<?php echo number_format($total, 2); ?></strong></td>
+                        <td colspan="2"><strong>$<?php echo number_format($total, 2); ?></strong></td>
                     </tr>
                 </tbody>
             </table>
@@ -73,10 +104,8 @@ if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
             <form method="post" action="factura.php">
                 <button type="submit" class="btn-procesar">Proceder con la compra</button>
             </form>
-
         <?php endif; ?>
     </main>
-
 
 </body>
 

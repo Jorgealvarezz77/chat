@@ -1,0 +1,107 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d4f5d0;
+    color: #333;
+}
+
+header {
+    background-color: #8fbf88;
+    padding: 20px;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #333;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #6b8e23;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+table thead th {
+    background-color: #8fbf88;
+    color: white;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #e3e6c9;
+}
+
+table tfoot td {
+    font-weight: bold;
+}
+
+form button.btn-procesar {
+    background-color: #8fbf88;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button.btn-procesar:hover {
+    background-color: #6b8e23;
+    transform: scale(1.05);
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+footer {
+    background-color: #8fbf88;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
