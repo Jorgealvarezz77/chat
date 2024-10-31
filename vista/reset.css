@@ -85,13 +85,13 @@ input[type="submit"].enviar:hover {
     transform: scale(1.1); 
 }
 
-/* footer {
-    background-color: #8fbf88; 
+footer {
+    background-color: #81b878; 
     color: white;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
+    padding: 10px 0px;
     width: 100%;
-} */
+    position: relative;
+}
+
 

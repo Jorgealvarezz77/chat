@@ -27,14 +27,10 @@ session_start(); // Esto debe ir al inicio del archivo
                         <li><a href="registro.php">Registrarse</a></li>
 
                     <?php endif; ?>
-<<<<<<< HEAD
-                    <li class="nav-item active"><a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i>(<?php echo count($_SESSION['carrito']); ?>)</a></li>
-=======
-                    <li class="nav-item active">
                     <li class="nav-item active"><a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i>(<?php echo count($_SESSION['carrito']); ?>)</a></li>
                 </li>
->>>>>>> a0ad6870bdfffc44d8f517bf844bed66dfb79b6c
                 </ul>
+                
             </nav>
         </div>
     </header>
