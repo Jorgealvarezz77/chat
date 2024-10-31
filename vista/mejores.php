@@ -124,10 +124,11 @@ if (isset($_POST['agregar_carrito'])) {
             $conn->close();
             ?>
         </ul>
-        <footer>
+    </main>
+
+    <footer>
         <p>&copy; 2024 Agroo App. Todos los derechos reservados.</p>
     </footer>
-    </main>
 
 </body>
 
