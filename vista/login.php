@@ -22,12 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $_SESSION['user_id'] = $user['id']; 
             $_SESSION['username'] = $user['username']; 
-            $_SESSION['loggedin'] = true;
+            $_SESSION['loggedin'] = true ;
 
            
             if ($userType == 'campesino') {
-                
-                header('Location: subirproducto.php');
+                header('Location: opcioncampe.php');
                 exit(); 
             } else  {
                 

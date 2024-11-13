@@ -39,7 +39,7 @@ include 'conexion.php';
     <main class="container mt-4">
         <h2>escoge una opcion</h2>
         <button onclick="location.href='mejores.php'">Inicio</button>
-        <button onclick="location.href='subirptoducto.php'">Subir Producto</button>
+        <button onclick="location.href='subirproducto.php'">Subir Producto</button>
         <button onclick="location.href='catalogo'">Catálogo</button>
 
     </main>
