@@ -56,9 +56,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subir Producto</title>
     <link rel="stylesheet" href="sbirprod.css"> <!-- Puedes agregar estilos en sbirprod.css -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+<header>
+        <div class="caja">
+            <nav>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="pqr.php">Pqr</a></li>
+                    <li><a href="subirproducto.php">Subir producto</a></li>
+                    <li><a href="mejores.php">Productos</a></li>
+                    <li><a href="carrito.php" class="nav-item active">Carrito(<?php echo count($_SESSION['carrito']); ?>)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <div class="form-container">
         <h1>Subir Producto</h1>
