@@ -59,6 +59,28 @@ $carrito = $_SESSION['carrito'];
 </head>
 <body>
 
+<header>
+        <div class="caja">
+            <nav>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="pqr.php">Pqr</a></li>
+                    <li><a href="mejores.php">Productos</a></li>
+                    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                        <li><a href="logout.php">Cerrar sesión</a></li>
+                    <?php else: ?>
+                        <li><a href="login.php">Iniciar sesión</a></li>
+                        <li><a href="registro.php">Registrarse</a></li>
+
+                    <?php endif; ?>
+                    <li class="nav-item active"><a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i>(<?php echo count($_SESSION['carrito']); ?>)</a></li>
+                </li>
+                </ul>
+                
+            </nav>
+        </div>
+    </header>
+
     <h1>Carrito de Compras</h1>
     <?php if (empty($carrito)) : ?>
         <p>Tu carrito está vacío.</p>

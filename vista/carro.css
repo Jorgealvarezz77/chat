@@ -1,6 +1,7 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
+    background-color: #d4f5d0;
     color: #333;
     margin: 0;
     padding: 0;
@@ -9,49 +10,47 @@ body {
     align-items: center;
 }
 
+/* Encabezado y barra de navegación */
+header {
+    width: 100%;
+    background-color: #8fbf88;
+    padding: 20px 0;
+}
+
+header .caja {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #333;
+}
+
+/* Título */
 h1 {
-    color: #2c3e50;
+    color: #6b8e23;
     text-align: center;
     margin-top: 20px;
-}
-
-/* Productos */
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    width: 80%;
-    max-width: 600px;
-}
-
-ul li {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-ul li form {
-    display: inline;
-}
-
-ul li button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-ul li button:hover {
-    background-color: #2980b9;
 }
 
 /* Carrito */
@@ -60,13 +59,13 @@ table {
     max-width: 800px;
     border-collapse: collapse;
     margin-top: 20px;
-    background: #fff;
-    border-radius: 5px;
+    background: #e3e6c9;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 table, th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
 }
 
 th, td {
@@ -75,7 +74,7 @@ th, td {
 }
 
 th {
-    background-color: #3498db;
+    background-color: #8fbf88;
     color: white;
 }
 
@@ -83,30 +82,38 @@ tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Botón eliminar */
-table form button {
-    background-color: #e74c3c;
+/* Botones */
+button {
+    background-color: #8fbf88;
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
+    transition: background-color 0.3s;
 }
 
-table form button:hover {
+button:hover {
+    background-color: #6b8e23;
+}
+
+.boton-eliminar {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.boton-eliminar:hover {
     background-color: #c0392b;
 }
 
-/* Enlaces */
-a {
-    display: inline-block;
-    margin: 20px;
-    text-decoration: none;
-    color: #3498db;
-    font-weight: bold;
-}
-
-a:hover {
-    color: #2980b9;
+/* Footer */
+footer {
+    background-color: #8fbf88;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
 }
