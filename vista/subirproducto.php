@@ -52,24 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subir Producto</title>
     <link rel="stylesheet" href="sbirprod.css"> <!-- Puedes agregar estilos en sbirprod.css -->
     <link rel="stylesheet" href="style.css">
-=======
-<meta charset="UTF-8">
-    <title>Productos - Agroo app</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        .contenedor {
-            text-align: center;
-        }
-    </style>
->>>>>>> bd7c06269a30605a0102fd31b4d1e9aba55fb40a
 </head>
 
 <body>
@@ -91,20 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </li>
             </ul>
         </nav>
-    </header>
-
-<header>
-        <div class="caja">
-            <nav>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="pqr.php">Pqr</a></li>
-                    <li><a href="subirproducto.php">Subir producto</a></li>
-                    <li><a href="mejores.php">Productos</a></li>
-                    <li><a href="carrito.php" class="nav-item active">Carrito(<?php echo count($_SESSION['carrito']); ?>)</a></li>
-                </ul>
-            </nav>
-        </div>
     </header>
 
     <div class="form-container">
