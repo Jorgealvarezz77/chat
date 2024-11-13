@@ -63,11 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a href="mejores.php">Productos</a></li>
             
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                <!-- Mostrar "Subir producto" solo si el usuario es campesino -->
-                <?php if (isset($_SESSION['userType']) && $_SESSION['userType'] === 'Campesino'): ?>
-                    <li><a href="subirproducto.php">Subir producto</a></li>
-                <?php endif; ?>
                 <li><a href="logout.php">Cerrar sesión</a></li>
+                <li><a href="subirproducto.php">Subir producto</a></li>
             <?php else: ?>
                 <li><a href="login.php">Iniciar sesión</a></li>
                 <li><a href="registro.php">Registrarse</a></li>
