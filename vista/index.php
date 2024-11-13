@@ -1,6 +1,46 @@
 <?php
-session_start(); 
+session_start();
+include 'conexion.php'; 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $userType = $_POST['userType']; 
+
+    $sql = "SELECT * FROM usuario WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id']; 
+            $_SESSION['username'] = $user['username']; 
+            $_SESSION['loggedin'] = true;
+            $_SESSION['userType'] = $userType; // Asignar el tipo de usuario (campesino o comprador)
+
+            if ($userType == 'campesino') {
+                header('Location: opcioncampe.php');
+                exit(); 
+            } else {
+                header('Location: mejores.php');
+                exit(); 
+            }
+        } else {
+            $error_message = "Contraseña incorrecta.";
+        }
+    } else {
+        $error_message = "Usuario no encontrado.";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,25 +54,32 @@ session_start();
 
 <body>
     
-    <header>
-        <nav>
-            <h1 class="titulo-principal">AGROO APP</h1>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="pqr.php">PQR</a></li>
-                <li><a href="mejores.php">Productos</a></li>
-                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                    <li><a href="logout.php">Cerrar sesión</a></li>
-                <?php else: ?>
-                    <li><a href="login.php">Iniciar sesión</a></li>
-                    <li><a href="registro.php">Registrarse</a></li>
+<header>
+    <nav>
+        <h1 class="titulo-principal">AGROO APP</h1>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="pqr.php">PQR</a></li>
+            <li><a href="mejores.php">Productos</a></li>
+            
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <!-- Mostrar "Subir producto" solo si el usuario es campesino -->
+                <?php if (isset($_SESSION['userType']) && $_SESSION['userType'] === 'Campesino'): ?>
+                    <li><a href="subirproducto.php">Subir producto</a></li>
                 <?php endif; ?>
-                <li class="nav-item active">
-                    <a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo count($_SESSION['carrito']); ?>)</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+                <li><a href="logout.php">Cerrar sesión</a></li>
+            <?php else: ?>
+                <li><a href="login.php">Iniciar sesión</a></li>
+                <li><a href="registro.php">Registrarse</a></li>
+            <?php endif; ?>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
 
     <!-- Main Content -->
     <main>

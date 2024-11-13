@@ -61,24 +61,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 <header>
-        <nav>
-            <h1 class="titulo-principal">AGROO APP</h1>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="pqr.php">PQR</a></li>
-                <li><a href="mejores.php">Productos</a></li>
-                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                    <li><a href="logout.php">Cerrar sesión</a></li>
-                <?php else: ?>
-                    <li><a href="login.php">Iniciar sesión</a></li>
-                    <li><a href="registro.php">Registrarse</a></li>
+    <nav>
+        <h1 class="titulo-principal">AGROO APP</h1>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="pqr.php">PQR</a></li>
+            <li><a href="mejores.php">Productos</a></li>
+            
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <?php if (isset($_SESSION['userType']) && $_SESSION['userType'] === 'campesino'): ?>
+                    <li><a href="subirproducto.php">Subir producto</a></li>
                 <?php endif; ?>
-                <li class="nav-item active">
-                    <a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo count($_SESSION['carrito']); ?>)</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+                <li><a href="logout.php">Cerrar sesión</a></li>
+            <?php else: ?>
+                <li><a href="login.php">Iniciar sesión</a></li>
+                <li><a href="registro.php">Registrarse</a></li>
+            <?php endif; ?>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
 
     <div class="form-container">
         <h1>Subir Producto</h1>

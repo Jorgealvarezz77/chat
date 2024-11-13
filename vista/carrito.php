@@ -55,82 +55,88 @@ $carrito = $_SESSION['carrito'];
     <meta charset="UTF-8">
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="carro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 <body>
 
 <header>
-        <div class="caja">
-            <nav>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="pqr.php">Pqr</a></li>
-                    <li><a href="mejores.php">Productos</a></li>
-                    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                        <li><a href="logout.php">Cerrar sesión</a></li>
-                    <?php else: ?>
-                        <li><a href="login.php">Iniciar sesión</a></li>
-                        <li><a href="registro.php">Registrarse</a></li>
+    <div class="caja">
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="pqr.php">PQR</a></li>
+                <li><a href="mejores.php">Productos</a></li>
+                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                    <li><a href="logout.php">Cerrar sesión</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Iniciar sesión</a></li>
+                    <li><a href="registro.php">Registrarse</a></li>
+                <?php endif; ?>
+                <li class="nav-item active"><a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo count($_SESSION['carrito']); ?>)</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-                    <?php endif; ?>
-                    <li class="nav-item active"><a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i>(<?php echo count($_SESSION['carrito']); ?>)</a></li>
-                </li>
-                </ul>
-                
-            </nav>
-        </div>
-    </header>
-
-    <h1>Carrito de Compras</h1>
-    <?php if (empty($carrito)) : ?>
-        <p>Tu carrito está vacío.</p>
-    <?php else : ?>
-        <table>
+<h1>Carrito de Compras</h1>
+<?php if (empty($carrito)) : ?>
+    <p>Tu carrito está vacío.</p>
+<?php else : ?>
+    <table>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+            <th>Acción</th>
+        </tr>
+        <?php
+        $total_carrito = 0;
+        foreach ($carrito as $id => $producto) :
+            $total = $producto['precio'] * $producto['cantidad'];
+            $total_carrito += $total;
+        ?>
             <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Total</th>
-                <th>Acción</th>
+                <td><?php echo $producto['nombre']; ?></td>
+                <td>
+                    <form action="" method="POST" style="display:inline;">
+                        <input type="hidden" name="id_producto" value="<?php echo $id; ?>">
+                        <input type="hidden" name="accion" value="disminuir">
+                        <button type="submit">-</button>
+                    </form>
+                    <?php echo $producto['cantidad']; ?>
+                    <form action="" method="POST" style="display:inline;">
+                        <input type="hidden" name="id_producto" value="<?php echo $id; ?>">
+                        <input type="hidden" name="accion" value="aumentar">
+                        <button type="submit">+</button>
+                    </form>
+                </td>
+                <td>$<?php echo number_format($producto['precio'], 2); ?></td>
+                <td>$<?php echo number_format($total, 2); ?></td>
+                <td>
+                    <form action="" method="POST">
+                        <input type="hidden" name="id_producto" value="<?php echo $id; ?>">
+                        <input type="hidden" name="accion" value="eliminar">
+                        <button type="submit" class="boton-eliminar">Eliminar</button>
+                    </form>
+                </td>
             </tr>
-            <?php
-            $total_carrito = 0;
-            foreach ($carrito as $id => $producto) :
-                $total = $producto['precio'] * $producto['cantidad'];
-                $total_carrito += $total;
-            ?>
-                <tr>
-                    <td><?php echo $producto['nombre']; ?></td>
-                    <td>
-                        <form action="" method="POST" style="display:inline;">
-                            <input type="hidden" name="id_producto" value="<?php echo $id; ?>">
-                            <input type="hidden" name="accion" value="disminuir">
-                            <button type="submit">-</button>
-                        </form>
-                        <?php echo $producto['cantidad']; ?>
-                        <form action="" method="POST" style="display:inline;">
-                            <input type="hidden" name="id_producto" value="<?php echo $id; ?>">
-                            <input type="hidden" name="accion" value="aumentar">
-                            <button type="submit">+</button>
-                        </form>
-                    </td>
-                    <td>$<?php echo number_format($producto['precio'], 2); ?></td>
-                    <td>$<?php echo number_format($total, 2); ?></td>
-                    <td>
-                        <form action="" method="POST">
-                            <input type="hidden" name="id_producto" value="<?php echo $id; ?>">
-                            <input type="hidden" name="accion" value="eliminar">
-                            <button type="submit" class="boton-eliminar">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-            <tr>
-                <td colspan="3">Total</td>
-                <td colspan="2">$<?php echo number_format($total_carrito, 2); ?></td>
-            </tr>
-        </table>
-    <?php endif; ?>
+        <?php endforeach; ?>
+        <tr>
+            <td colspan="3">Total</td>
+            <td colspan="2">$<?php echo number_format($total_carrito, 2); ?></td>
+        </tr>
+    </table>
 
+    <!-- Botones de acción -->
+    <form action="factura.php" method="POST">
+        <button type="submit" name="generar_factura">Continuar con la compra</button>
+    </form>
+<?php endif; ?>
+
+<footer>
+        <p>&copy; 2024 Agroo App. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
