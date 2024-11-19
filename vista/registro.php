@@ -45,29 +45,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     
-    <header>
-        <div class="caja">
-            <nav>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="pqr.php">Pqr</a></li>
-                    <li><a href="mejores.php">Productos</a></li>
-                    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                        <li><a href="logout.php">Cerrar sesión</a></li>
-                    <?php else: ?>
-                        <li><a href="login.php">Iniciar sesión</a></li>
-                        <li><a href="registro.php">Registrarse</a></li>
-                    <?php endif; ?>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="carrito.php">
-                            <i class="fa-solid fa-cart-shopping"></i>(<?php echo count($_SESSION['carrito']); ?>)
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header>
+    <nav>
+        <h1 class="titulo-principal">AGROO APP</h1>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="pqr.php">PQR</a></li>
+            <li><a href="mejores.php">Productos</a></li>
+            
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <li><a href="logout.php">Cerrar sesión</a></li>
+                <li><a href="subirproducto.php">Subir producto</a></li>
+            <?php else: ?>
+                <li><a href="login.php">Iniciar sesión</a></li>
+                <li><a href="registro.php">Registrarse</a></li>
+            <?php endif; ?>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+    <br>
     <div class="form-container">
         <form method="post" action="">
             <div class="mb-3">
@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="btn btn-primary">Crear Usuario</button>
         </form>
     </div>
-
+    <br>
     <footer>
         <p>&copy; 2024 Agroo App. Todos los derechos reservados.</p>
     </footer>
