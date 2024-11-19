@@ -54,6 +54,7 @@ $carrito = $_SESSION['carrito'];
 <head>
     <meta charset="UTF-8">
     <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="carro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
@@ -61,23 +62,30 @@ $carrito = $_SESSION['carrito'];
 <body>
 
 <header>
-    <div class="caja">
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="pqr.php">PQR</a></li>
-                <li><a href="mejores.php">Productos</a></li>
-                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                    <li><a href="logout.php">Cerrar sesión</a></li>
-                <?php else: ?>
-                    <li><a href="login.php">Iniciar sesión</a></li>
-                    <li><a href="registro.php">Registrarse</a></li>
+    <nav>
+        <h1 class="titulo-principal">AGROO APP</h1>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="pqr.php">PQR</a></li>
+            <li><a href="mejores.php">Productos</a></li>
+            
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <?php if (isset($_SESSION['userType']) && $_SESSION['userType'] === 'campesino'): ?>
+                    <li><a href="subirproducto.php">Subir producto</a></li>
                 <?php endif; ?>
-                <li class="nav-item active"><a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo count($_SESSION['carrito']); ?>)</a></li>
-            </ul>
-        </nav>
-    </div>
+                <li><a href="logout.php">Cerrar sesión</a></li>
+            <?php else: ?>
+                <li><a href="login.php">Iniciar sesión</a></li>
+                <li><a href="registro.php">Registrarse</a></li>
+            <?php endif; ?>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)</a>
+            </li>
+        </ul>
+    </nav>
 </header>
+
 
 <h1>Carrito de Compras</h1>
 <?php if (empty($carrito)) : ?>
@@ -134,7 +142,7 @@ $carrito = $_SESSION['carrito'];
         <button type="submit" name="generar_factura">Continuar con la compra</button>
     </form>
 <?php endif; ?>
-
+<br>
 <footer>
         <p>&copy; 2024 Agroo App. Todos los derechos reservados.</p>
     </footer>

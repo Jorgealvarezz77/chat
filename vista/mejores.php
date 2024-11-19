@@ -80,6 +80,7 @@ if (isset($_POST['agregar_carrito'])) {
     </nav>
 </header>
 
+
     <main>
         <ul class="productos">
             <div class="container">
@@ -116,6 +117,7 @@ if (isset($_POST['agregar_carrito'])) {
                     echo "<input type='hidden' name='nombre' value='" . htmlspecialchars($row['nombre']) . "'>";
                     echo "<input type='hidden' name='precio' value='" . htmlspecialchars($row['precio']) . "'>";
                     echo "<input type='hidden' name='stock' value='" . htmlspecialchars($row['stock']) . "'>"; // Incluir el stock en el formulario
+                    echo "<br>";
                     echo "<input type='submit' name='agregar_carrito' value='comprar' class='enviar'>";
                     echo "</form>";
                     echo "</div>";

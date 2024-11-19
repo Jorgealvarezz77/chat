@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -30,6 +35,13 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #333; 
+}
+
+.titulo-principal {
+    margin: 0;
+    font-size: 24px;
+    text-align: left;
+    color: black;
 }
 
 .main {
@@ -104,4 +116,24 @@ footer {
     position: relative; 
     width: 100%; 
     bottom: 0; 
+}
+
+.productos img {
+    width: 300px; /* Establece el ancho deseado */
+    height: 200px; /* Establece el alto deseado */
+    object-fit: cover; /* Mantiene las proporciones recortando la imagen si es necesario */
+    border-radius: 5px; /* Opcional: redondea los bordes */
+    border: 1px solid #ccc; /* Opcional: agrega un borde para las imágenes */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: agrega un efecto de sombra */
+}
+
+#preview {
+    display: block; /* Asegura que la imagen sea un bloque separado */
+    margin: 10px auto; /* Centra la imagen horizontalmente */
+    width: 500px; /* Ancho fijo */
+    height: 300px; /* Alto fijo */
+    object-fit: cover; /* Ajusta la imagen para que encaje sin distorsionarse */
+    border: 2px solid #ccc; /* Opcional: un borde alrededor de la imagen */
+    border-radius: 10px; /* Opcional: bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra para resaltar */
 }

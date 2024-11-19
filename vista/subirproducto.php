@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Subir Producto</title>
-    <link rel="stylesheet" href="sbirprod.css"> <!-- Puedes agregar estilos en sbirprod.css -->
+    <link rel="stylesheet" href="sbirprod.css"> 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
