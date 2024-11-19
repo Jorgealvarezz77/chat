@@ -40,9 +40,8 @@ include 'conexion.php';
         <h2>escoge una opcion</h2>
         <button onclick="location.href='mejores.php'">Inicio</button>
         <button onclick="location.href='subirproducto.php'">Subir Producto</button>
-        <button onclick="location.href='catalogo'">Catálogo</button>
-
-    </main>
-    
+        <button onclick="location.href='catalogo.php'">Catálogo</button>
+        
+    </main>    
 </body>
 </html>
