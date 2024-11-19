@@ -54,28 +54,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="login.css">   
+    <link rel="stylesheet" href="style.css">   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
 
 <header>
-        <div class="caja">
-            <nav>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="pqr.php">Pqr</a></li>
-                    <li><a href="mejores.php">Productos</a></li>
-                    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                        <li><a href="logout.php">Cerrar sesión</a></li>
-                    <?php else: ?>
-                        <li><a href="login.php">Iniciar sesión</a></li>
-                        <li><a href="registro.php">Registrarse</a></li>
-                    <?php endif; ?>
-                    <li class="nav-item active"><a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i>(<?php echo count($_SESSION['carrito']); ?>)</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <nav>
+        <h1 class="titulo-principal">AGROO APP</h1>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="pqr.php">PQR</a></li>
+            <li><a href="mejores.php">Productos</a></li>
+            
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <?php if (isset($_SESSION['userType']) && $_SESSION['userType'] === 'campesino'): ?>
+                    <li><a href="subirproducto.php">Subir producto</a></li>
+                <?php endif; ?>
+                <li><a href="logout.php">Cerrar sesión</a></li>
+            <?php else: ?>
+                <li><a href="login.php">Iniciar sesión</a></li>
+                <li><a href="registro.php">Registrarse</a></li>
+            <?php endif; ?>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
 
     <div class="form-container">
         <h2>Iniciar Sesión</h2>

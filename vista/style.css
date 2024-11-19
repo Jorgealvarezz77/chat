@@ -118,14 +118,17 @@ footer {
     bottom: 0; 
 }
 
-.productos img {
-    width: 300px; /* Establece el ancho deseado */
-    height: 200px; /* Establece el alto deseado */
-    object-fit: cover; /* Mantiene las proporciones recortando la imagen si es necesario */
-    border-radius: 5px; /* Opcional: redondea los bordes */
-    border: 1px solid #ccc; /* Opcional: agrega un borde para las imágenes */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: agrega un efecto de sombra */
+ul.productos li img {
+    display: block; /* Permite centrar usando margin auto */
+    margin: 0 auto; /* Centra horizontalmente */
+    width: 200px; /* Ancho fijo */
+    height: 200px; /* Alto fijo */
+    object-fit: cover; /* Ajusta la imagen para que encaje sin distorsionarse */
+    border-radius: 5px; /* Redondea los bordes */
+    border: 1px solid #ccc; /* Agrega un borde */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para diseño */
 }
+
 
 #preview {
     display: block; /* Asegura que la imagen sea un bloque separado */

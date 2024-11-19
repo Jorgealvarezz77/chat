@@ -106,8 +106,11 @@ if (isset($_POST['agregar_carrito'])) {
                     echo "<li>";
                     echo "<h2>" . htmlspecialchars($row['nombre']) . "</h2>";
                     echo "<img src='../imagenes/" . htmlspecialchars($row['imagen']) . "' width='300px'>";
+                    echo "<br>";
                     echo "<p class='producto-descripcion'>" . htmlspecialchars($row['descripcion']) . "</p>";
+                    echo "<br>";
                     echo "<p class='producto-precio'>Precio: $" . htmlspecialchars($row['precio']) . "</p>";
+                    echo "<br>";
                     echo "<p class='producto-stock'>Stock disponible: " . htmlspecialchars($row['stock']) . "</p>"; // Mostrar el stock
                     echo "<br>Subido por: " . htmlspecialchars($row['username']); // Mostrar el nombre del usuario que subió el producto
 
