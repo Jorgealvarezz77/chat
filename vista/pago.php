@@ -1,20 +1,42 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $celular = $_POST['celular'];
-    $valor = $_POST['valor'];
+session_start();
 
-    // Simulación de validación
-    if (empty($celular) || empty($valor)) {
-        $mensaje = "Por favor, complete todos los campos.";
-    } elseif (!is_numeric($celular) || strlen($celular) != 10) {
-        $mensaje = "Ingrese un número de celular válido (10 dígitos).";
-    } elseif ($valor <= 0) {
-        $mensaje = "El valor debe ser mayor a 0.";
-    } else {
-        $mensaje = "Pago de $ $valor realizado con éxito desde el número $celular.";
+// Simulación de los productos en el carrito (esto debe venir de la sesión)
+$carrito = [
+    1 => ["nombre" => "Producto 1", "precio" => 10.00, "cantidad" => 2],
+    2 => ["nombre" => "Producto 2", "precio" => 15.00, "cantidad" => 1],
+];
+
+// Obtener el total del carrito
+$total_carrito = 0;
+foreach ($carrito as $producto) {
+    $total_carrito += $producto['precio'] * $producto['cantidad'];
+}
+
+// Generar la factura si se hace una solicitud POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generar_factura'])) {
+    // Contenido de la factura
+    $factura = "Factura de Compra\n\n";
+    foreach ($carrito as $id => $producto) {
+        $factura .= "Producto: " . $producto['nombre'] . "\n";
+        $factura .= "Cantidad: " . $producto['cantidad'] . "\n";
+        $factura .= "Precio: $" . number_format($producto['precio'], 2) . "\n";
+        $factura .= "Total: $" . number_format($producto['precio'] * $producto['cantidad'], 2) . "\n\n";
     }
+    $factura .= "Total a pagar: $" . number_format($total_carrito, 2) . "\n";
+    
+    // Crear el archivo de la factura
+    $nombre_factura = "factura_" . date("Ymd_His") . ".txt";
+    file_put_contents($nombre_factura, $factura);
+    
+    // Forzar la descarga del archivo
+    header('Content-Type: text/plain');
+    header('Content-Disposition: attachment; filename="' . $nombre_factura . '"');
+    readfile($nombre_factura);
+    exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -101,6 +123,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background-color: #ec971f;
             transform: scale(1.1);
         }
+        .btn-generate {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-generate:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -111,9 +148,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label for="valor">Valor a pagar:</label>
         <input type="number" id="valor" name="valor" placeholder="Ej: 50000">
         <button type="submit" class="btn">Pagar</button>
-        <?php if (isset($mensaje)): ?>
-            <div class="mensaje"><?php echo htmlspecialchars($mensaje); ?></div>
-        <?php endif; ?>
+        
+        <!-- Mostrar el carrito y total -->
+        <h2>Productos en el carrito:</h2>
+        <?php foreach ($carrito as $producto): ?>
+            <p><?php echo $producto['nombre']; ?> - Cantidad: <?php echo $producto['cantidad']; ?> - Precio: $<?php echo number_format($producto['precio'], 2); ?></p>
+        <?php endforeach; ?>
+        <p><strong>Total a pagar: $<?php echo number_format($total_carrito, 2); ?></strong></p>
+
+        <!-- Botón para generar y descargar factura -->
+        <button type="submit" name="generar_factura" class="btn-generate">Generar Factura</button>
+        
         <!-- Botón para volver al menú principal -->
         <button type="button" class="btn-back" onclick="window.location.href='index.php';">Volver al menú principal</button>
     </form>

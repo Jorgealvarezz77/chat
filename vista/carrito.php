@@ -57,7 +57,6 @@ $carrito = $_SESSION['carrito'];
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="carro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
 </head>
 <body>
 
@@ -85,7 +84,6 @@ $carrito = $_SESSION['carrito'];
         </ul>
     </nav>
 </header>
-
 
 <h1>Carrito de Compras</h1>
 <?php if (empty($carrito)) : ?>
@@ -137,14 +135,17 @@ $carrito = $_SESSION['carrito'];
         </tr>
     </table>
 
-    <!-- Botones de acción -->
-    <form action="factura.php" method="POST">
-        <button type="submit" name="generar_factura">Continuar con la compra</button>
+    <!-- Botón para pagar con Nequi -->
+    <form action="pago.php" method="POST">
+        <input type="hidden" name="total_carrito" value="<?php echo $total_carrito; ?>">
+        <button type="submit">Pagar con Nequi</button>
     </form>
+
 <?php endif; ?>
+
 <br>
 <footer>
-        <p>&copy; 2024 Agroo App. Todos los derechos reservados.</p>
-    </footer>
+    <p>&copy; 2024 Agroo App. Todos los derechos reservados.</p>
+</footer>
 </body>
 </html>
