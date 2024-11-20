@@ -135,5 +135,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         };
     </script>
 
+    <footer>
+        <p>&copy; 2024 Agroo App. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>

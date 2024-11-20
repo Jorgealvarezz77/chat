@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background-color: #d4f5d0; 
@@ -9,7 +8,6 @@ body {
     min-height: 100vh;
     margin: 0;
 }
-
 
 header {
     background-color: #8fbf88; 
@@ -44,6 +42,14 @@ header {
     color: #ffff99; 
 }
 
+footer {
+    background-color: #8fbf88; 
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
 
 .form-container {
     background-color: #e3e6c9; 
@@ -95,13 +101,4 @@ h2 {
     border-radius: 5px;
     padding: 10px;
     margin-top: 15px;
-}
-
-footer {
-    background-color: #8fbf88; 
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
 }

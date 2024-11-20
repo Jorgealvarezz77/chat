@@ -49,22 +49,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav>
         <h1 class="titulo-principal">AGROO APP</h1>
         <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="pqr.php">PQR</a></li>
-            <li><a href="mejores.php">Productos</a></li>
-            
-            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                <li><a href="logout.php">Cerrar sesión</a></li>
-                <li><a href="subirproducto.php">Subir producto</a></li>
-            <?php else: ?>
-                <li><a href="login.php">Iniciar sesión</a></li>
-                <li><a href="registro.php">Registrarse</a></li>
-            <?php endif; ?>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i> (<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)</a>
-            </li>
-        </ul>
+    <li><a href="index.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">Home</a></li>
+    <li><a href="pqr.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'pqr.php') ? 'active' : ''; ?>">PQR</a></li>
+    <li><a href="mejores.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'mejores.php') ? 'active' : ''; ?>">Productos</a></li>
+    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+        <li><a href="logout.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? 'active' : ''; ?>">Cerrar sesión</a></li>
+        <li><a href="subirproducto.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'subirproducto.php') ? 'active' : ''; ?>">Subir producto</a></li>
+    <?php else: ?>
+        <li><a href="login.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'login.php') ? 'active' : ''; ?>">Iniciar sesión</a></li>
+        <li><a href="registro.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'registro.php') ? 'active' : ''; ?>">Registrarse</a></li>
+    <?php endif; ?>
+    <li><a href="carrito.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'carrito.php') ? 'active' : ''; ?>"><i class="fa-solid fa-cart-shopping"></i> (<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)</a></li>
+</ul>
     </nav>
 </header>
     <br>
