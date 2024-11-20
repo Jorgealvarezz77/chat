@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Simulación de los productos en el carrito (esto debe venir de la sesión)
+// Simulación de los productos en el carrito
 $carrito = [
     1 => ["nombre" => "Producto 1", "precio" => 10.00, "cantidad" => 2],
     2 => ["nombre" => "Producto 2", "precio" => 15.00, "cantidad" => 1],
@@ -15,34 +15,107 @@ foreach ($carrito as $producto) {
 
 // Generar la factura si se hace una solicitud POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generar_factura'])) {
-    // Contenido de la factura
-    $factura = "Factura de Compra\n\n";
-    foreach ($carrito as $id => $producto) {
-        $factura .= "Producto: " . $producto['nombre'] . "\n";
-        $factura .= "Cantidad: " . $producto['cantidad'] . "\n";
-        $factura .= "Precio: $" . number_format($producto['precio'], 2) . "\n";
-        $factura .= "Total: $" . number_format($producto['precio'] * $producto['cantidad'], 2) . "\n\n";
+    // Contenido HTML de la factura
+    $factura_html = "
+    <html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }
+            .container {
+                width: 80%;
+                margin: 0 auto;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                text-align: center;
+                color: #4CAF50;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+            .total {
+                font-size: 18px;
+                font-weight: bold;
+                text-align: right;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Factura de Compra</h1>
+            <table>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                </tr>";
+    
+    foreach ($carrito as $producto) {
+        $factura_html .= "
+        <tr>
+            <td>" . $producto['nombre'] . "</td>
+            <td>" . $producto['cantidad'] . "</td>
+            <td>$" . number_format($producto['precio'], 2) . "</td>
+            <td>$" . number_format($producto['precio'] * $producto['cantidad'], 2) . "</td>
+        </tr>";
     }
-    $factura .= "Total a pagar: $" . number_format($total_carrito, 2) . "\n";
+
+    $factura_html .= "
+            </table>
+            <div class='total'>
+                Total a pagar: $" . number_format($total_carrito, 2) . "
+            </div>
+        </div>
+    </body>
+    </html>";
+
+    // Crear la carpeta si no existe
+    $folder = 'factura/';
+    if (!is_dir($folder)) {
+        mkdir($folder, 0777, true);
+    }
     
-    // Crear el archivo de la factura
-    $nombre_factura = "factura_" . date("Ymd_His") . ".txt";
-    file_put_contents($nombre_factura, $factura);
+    // Nombre del archivo de la factura
+    $nombre_factura = "factura_" . date("Ymd_His") . ".html";
     
-    // Forzar la descarga del archivo
-    header('Content-Type: text/plain');
+    // Guardar la factura HTML dentro de la carpeta 'factura'
+    file_put_contents($folder . $nombre_factura, $factura_html);
+    
+    // Forzar la descarga del archivo HTML
+    header('Content-Type: text/html');
     header('Content-Disposition: attachment; filename="' . $nombre_factura . '"');
-    readfile($nombre_factura);
+    readfile($folder . $nombre_factura);
     exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulación de Pago con Nequi</title>
+    <title>Pago con Nequi</title>
     <style>
         * {
             margin: 0;
