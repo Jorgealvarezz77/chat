@@ -51,11 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="login.css">   
-    <link rel="stylesheet" href="style.css">   
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
 </head>
 <body>
 
@@ -68,10 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a href="mejores.php">Productos</a></li>
             
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                <?php if (isset($_SESSION['userType']) && $_SESSION['userType'] === 'campesino'): ?>
-                    <li><a href="subirproducto.php">Subir producto</a></li>
-                <?php endif; ?>
                 <li><a href="logout.php">Cerrar sesión</a></li>
+                <li><a href="subirproducto.php">Subir producto</a></li>
             <?php else: ?>
                 <li><a href="login.php">Iniciar sesión</a></li>
                 <li><a href="registro.php">Registrarse</a></li>
@@ -83,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </ul>
     </nav>
 </header>
+
 
 
     <div class="form-container">
@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <br><br>
+    
     <footer>
         <p>&copy; 2024 Agroo App. Todos los derechos reservados.</p>
     </footer>

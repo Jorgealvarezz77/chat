@@ -108,35 +108,149 @@ ul.productos li .producto-precio {
     text-align: center;
 }
 
+html, body {
+    height: 100%;  /* Ocupa toda la altura de la pantalla */
+    margin: 0;     /* Elimina el margen por defecto */
+    padding: 0;    /* Elimina el padding por defecto */
+    display: flex;
+    flex-direction: column; /* Organiza el contenido en una columna */
+}
+
+/* Cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d4f5d0;
+    color: #333;
+}
+
+/* Contenedor principal (productos, contenido, etc.) */
+main {
+    flex-grow: 1;  /* Hace que el main ocupe todo el espacio disponible */
+    padding: 20px;
+}
+
+/* Estilo del footer */
 footer {
-    background-color: #8fbf88; 
-    color: white; 
-    text-align: center; 
-    padding: 10px 0; 
-    position: relative; 
-    width: 100%; 
-    bottom: 0; 
+    background-color: #8fbf88;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto; /* Esto asegura que el footer se mantenga al final de la página */
+}
+
+/* Otros estilos */
+header {
+    background-color: #8fbf88;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #333;
+}
+
+.titulo-principal {
+    margin: 0;
+    font-size: 24px;
+    text-align: left;
+    color: black;
+}
+
+ul.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+}
+
+ul.productos li {
+    list-style-type: none;
+    background-color: #e3e6c9;
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+ul.productos li h2 {
+    color: #6b8e23;
 }
 
 ul.productos li img {
-    display: block; /* Permite centrar usando margin auto */
-    margin: 0 auto; /* Centra horizontalmente */
-    width: 200px; /* Ancho fijo */
-    height: 200px; /* Alto fijo */
-    object-fit: cover; /* Ajusta la imagen para que encaje sin distorsionarse */
-    border-radius: 5px; /* Redondea los bordes */
-    border: 1px solid #ccc; /* Agrega un borde */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para diseño */
+    border-radius: 5px;
 }
 
+ul.productos li .producto-descripcion {
+    font-size: 14px;
+    color: #666;
+}
+
+ul.productos li .producto-precio {
+    color: #556b2f;
+    font-weight: bold;
+}
+
+.enviar {
+    background-color: #8fbf88;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.enviar:hover {
+    background-color: #6b8e23;
+    transform: scale(1.1);
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+ul.productos li img {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 #preview {
-    display: block; /* Asegura que la imagen sea un bloque separado */
-    margin: 10px auto; /* Centra la imagen horizontalmente */
-    width: 500px; /* Ancho fijo */
-    height: 300px; /* Alto fijo */
-    object-fit: cover; /* Ajusta la imagen para que encaje sin distorsionarse */
-    border: 2px solid #ccc; /* Opcional: un borde alrededor de la imagen */
-    border-radius: 10px; /* Opcional: bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra para resaltar */
+    display: block;
+    margin: 10px auto;
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
