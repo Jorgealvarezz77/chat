@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+#logo {
+    display: block; /* Asegura que sea tratado como un bloque */
+    margin: 0 auto; /* Centra horizontalmente */
+    max-width: 100%; /* Evita que la imagen exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción */
+}
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #d4f5d0;

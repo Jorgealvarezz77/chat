@@ -81,6 +81,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Main Content -->
     <main>
+
+        <img id="logo" src="/imagenes/logoo.png" width="200px"> 
+
         <!-- Información sobre Agroapp -->
         <section class="diferenciales">
             <h2 class="titulo-centralizado">Sobre Agroapp</h2>
